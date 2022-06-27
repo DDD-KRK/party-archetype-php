@@ -8,4 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 class PartyTest extends TestCase
 {
+    public function testTest(): void
+    {
+        $this->assertEquals(1, 2);
+    }
 }

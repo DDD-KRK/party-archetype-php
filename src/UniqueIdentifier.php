@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Archetype\Party;
+namespace Archetype;
 
-class UniqueIdentifier
+class UniqueIdentifier extends PartyIdentifier
 {
 }
