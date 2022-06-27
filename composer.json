@@ -1,0 +1,16 @@
+{
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "9.5.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "Archetype\\Party\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Archetype\\Party\\Tests\\": "tests/"
+        }
+    }
+}
