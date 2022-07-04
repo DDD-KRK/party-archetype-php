@@ -8,8 +8,8 @@ use DateTime;
 
 abstract class Address
 {
-    private ?DateTime $validFrom;
-    private ?DateTime $validTo;
+    protected ?DateTime $validFrom;
+    protected ?DateTime $validTo;
 
     abstract public function getAddress(): string;
 }

@@ -14,11 +14,11 @@ class GeographicAddress extends Address
     private Locale $country;
 
     public function __construct(
-        array  $addressLine,
         string $city,
         string $regionOrState,
         string $zipOrPostCode,
-        Locale $country
+        Locale $country,
+        string ...$addressLine
     )
     {
         Assert::minCount($addressLine, 1);
