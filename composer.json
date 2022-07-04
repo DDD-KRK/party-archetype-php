@@ -5,7 +5,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Archetype": "src/"
+            "Archetype\\": "src/"
         }
     },
     "autoload-dev": {
