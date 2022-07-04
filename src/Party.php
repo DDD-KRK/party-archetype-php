@@ -12,13 +12,8 @@ use Archetype\Party\PartyInterface;
 abstract class Party implements PartyInterface
 {
     private PartyIdentifierInterface $partyIdentifier;
-    private NameInterface $name;
     private array $addresses;
     private array $roles;
-//    public function __construct(PartyIdentifierInterface $partyIdentifier, NameInterface $name, array $addresses, array $registeredIdentifiers = array(), array $roles = array(), array $preferences = array()){
-//        $this->partyIdentifier = $partyIdentifier;
-//
-//    }
 
     public function getIdentifier(): PartyIdentifierInterface
     {
@@ -33,10 +28,7 @@ abstract class Party implements PartyInterface
         return [];
     }
 
-    public function getName(): string
-    {
-        return $this->name->getName();
-    }
+    abstract public function getName(): string;
 
     /**
      * @return Address[]
