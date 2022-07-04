@@ -8,12 +8,15 @@ class Person extends Party
 {
     private PersonName $personName;
     private array $otherPersonNames;
+    private ISOGender $isoGender;
 
-    public function __construct(PersonName $personName, PersonName ...$otherPersonNames)
+    public function __construct(PersonName $personName, ISOGender $isoGender, PersonName ...$otherPersonNames)
     {
         $this->personName = $personName;
         $this->otherPersonNames = $otherPersonNames;
+        $this->isoGender = $isoGender;
     }
+
     public function getPersonName(): PersonName
     {
         return $this->personName;
@@ -30,5 +33,10 @@ class Person extends Party
     public function getOtherPersonNames(): array
     {
         return $this->otherPersonNames;
+    }
+
+    public function getIsoGender(): ISOGender
+    {
+        return $this->isoGender;
     }
 }
