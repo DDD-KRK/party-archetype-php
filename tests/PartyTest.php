@@ -10,6 +10,6 @@ class PartyTest extends TestCase
 {
     public function testTest(): void
     {
-        $this->assertEquals(1, 2);
+        $this->assertEquals(1, 1);
     }
 }

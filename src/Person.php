@@ -12,6 +12,7 @@ class Person extends Party
 
     public function __construct(PersonName $personName, ISOGender $isoGender, PersonName ...$otherPersonNames)
     {
+        parent::__construct();
         $this->personName = $personName;
         $this->otherPersonNames = $otherPersonNames;
         $this->isoGender = $isoGender;

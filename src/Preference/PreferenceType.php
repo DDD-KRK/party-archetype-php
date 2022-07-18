@@ -17,6 +17,7 @@ class PreferenceType
         private ?UniqueIdentifier $uniqueIdentifier = null
     ) {
         Assert::allIsInstanceOf($options, PreferenceOption::class);
+        Assert::greaterThanEq($options, 1);
     }
 
     public function getName(): string

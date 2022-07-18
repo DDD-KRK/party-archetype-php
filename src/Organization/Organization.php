@@ -14,6 +14,7 @@ class Organization extends Party
 
     public function __construct(OrganizationName $organizationName, OrganizationName ...$otherOrganizationNames)
     {
+        parent::__construct();
         $this->organizationName = $organizationName;
         $this->otherOrganizationNames = $otherOrganizationNames;
     }

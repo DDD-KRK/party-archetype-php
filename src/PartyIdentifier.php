@@ -6,7 +6,9 @@ namespace Archetype;
 
 class PartyIdentifier
 {
-    private string $identifier;
+    public function __construct(private string $identifier)
+    {
+    }
 
     public function getIdentifier() : string
     {

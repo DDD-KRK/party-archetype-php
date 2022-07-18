@@ -4,16 +4,23 @@ declare(strict_types=1);
 
 namespace Archetype;
 
-use Archetype\Common\NameInterface;
+use Archetype\Address\Address;
 use Archetype\Common\RegisteredIdentifierInterface;
 use Archetype\Party\PartyIdentifierInterface;
 use Archetype\Party\PartyInterface;
+use Archetype\Preference\Preference;
+use ArrayObject;
 
 abstract class Party implements PartyInterface
 {
     private PartyIdentifierInterface $partyIdentifier;
     private array $addresses;
     private array $roles;
+
+    /** @param Preference[] $preferences */
+    public function __construct(private array $preferences = [])
+    {
+    }
 
     public function getIdentifier(): PartyIdentifierInterface
     {
@@ -51,6 +58,22 @@ abstract class Party implements PartyInterface
      */
     public function getPreferences(): array
     {
-        return [];
+        return $this->preferences;
+    }
+
+    public function addPreference(Preference $preference): void
+    {
+        $this->preferences[] = $preference;
+    }
+
+    /**
+     * @return Preference[]
+     */
+    public function getPreferencesFor(UniqueIdentifier $preferenceTypeIdentifier): array
+    {
+        return array_filter(
+            $this->preferences,
+            fn(Preference $preference) => $preference->getType()->getUniqueIdentifierForThing()?->getIdentifier() === $preferenceTypeIdentifier->getIdentifier()
+        );
     }
 }
