@@ -29,7 +29,6 @@ class GeographicAddress extends Address
         $this->country = $country;
     }
 
-
     public function getAddress(): string
     {
         //todo reformat
