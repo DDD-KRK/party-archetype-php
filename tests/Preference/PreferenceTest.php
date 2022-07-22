@@ -28,6 +28,7 @@ class PreferenceTest extends TestCase
         $economyClassPreferences = $party->getPreferencesFor($this->getEconomyClassIdentifier());
 
         $this->assertCount(1, $economyClassPreferences);
+        $this->assertCount(2, $party->getPreferences());
     }
 
     public function getEconomyClassIdentifier(): UniqueIdentifier
