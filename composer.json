@@ -15,5 +15,14 @@
         "psr-4": {
             "Archetype\\Party\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ],
+        "test:watch": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit-watcher watch < /dev/tty"
+        ]
     }
 }
