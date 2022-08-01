@@ -11,12 +11,11 @@ use Archetype\Preference\Preference;
 
 abstract class Party implements PartyInterface
 {
-    private PartyIdentifier $partyIdentifier;
     private array $addresses;
     private array $roles;
 
     /** @param Preference[] $preferences */
-    public function __construct(private array $preferences = [])
+    public function __construct(private PartyIdentifier $partyIdentifier, private array $preferences = [])
     {
     }
 
