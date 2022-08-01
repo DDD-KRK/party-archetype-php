@@ -11,9 +11,11 @@ class PartyManager
      */
     private array $parties = [];
 
-    public function addParty(Party $party): void
+    public function addParty(Party $party): PartyManager
     {
         $this->parties[$party->getIdentifier()->getIdentifier()] = $party;
+
+        return $this;
     }
 
     public function deleteParty(PartyIdentifier $partyIdentifier): bool
@@ -30,8 +32,20 @@ class PartyManager
             : null;
     }
 
-    public function findPartyByName(string $name): ?Party
+    /**
+     * @param string $name
+     * @return Party[]
+     */
+    public function findPartyByName(string $name): array
     {
-        return null;
+        return array_values(
+            array_filter(
+                $this->parties,
+                function(Party $party, $k) use ($name) {
+                    return $party->getName() === $name;
+                },
+                ARRAY_FILTER_USE_BOTH
+            )
+        );
     }
 }

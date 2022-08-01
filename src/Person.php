@@ -10,9 +10,9 @@ class Person extends Party
     private array $otherPersonNames;
     private ISOGender $isoGender;
 
-    public function __construct(PersonName $personName, ISOGender $isoGender, PersonName ...$otherPersonNames)
+    public function __construct(PartyIdentifier $partyIdentifier, PersonName $personName, ISOGender $isoGender, PersonName ...$otherPersonNames)
     {
-        parent::__construct();
+        parent::__construct($partyIdentifier);
         $this->personName = $personName;
         $this->otherPersonNames = $otherPersonNames;
         $this->isoGender = $isoGender;

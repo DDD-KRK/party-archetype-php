@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Archetype\Party\Tests\Preference;
 
 use Archetype\ISOGender;
+use Archetype\PartyIdentifier;
 use Archetype\Person;
 use Archetype\PersonName;
 use Archetype\Preference\Preference;
@@ -20,7 +21,7 @@ class PreferenceTest extends TestCase
         $economyClassMealPreferenceType = $this->getEconomyClassMealPreferenceType();
         $economyClassSomePreferenceType = $this->getEconomyClassSomePreferenceType();
 
-        $party = new Person(new PersonName('a name'), ISOGender::NOT_SPECIFIED);
+        $party = new Person(new PartyIdentifier('UUID'), new PersonName('a name'), ISOGender::NOT_SPECIFIED);
 
         $party->addPreference(new Preference($economyClassMealPreferenceType, $economyClassMealPreferenceType->getOptions()[0]));
         $party->addPreference(new Preference($economyClassSomePreferenceType, $economyClassSomePreferenceType->getOptions()[0]));

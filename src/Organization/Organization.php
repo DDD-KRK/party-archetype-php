@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Archetype\Party\Organization;
+namespace Archetype\Organization;
 
 use Archetype\OrganizationName;
 use Archetype\Party;
+use Archetype\PartyIdentifier;
 
 class Organization extends Party
 {
     private OrganizationName $organizationName;
     private array $otherOrganizationNames;
 
-    public function __construct(OrganizationName $organizationName, OrganizationName ...$otherOrganizationNames)
+    public function __construct(PartyIdentifier $partyIdentifier, OrganizationName $organizationName, OrganizationName ...$otherOrganizationNames)
     {
-        parent::__construct();
+        parent::__construct($partyIdentifier);
         $this->organizationName = $organizationName;
         $this->otherOrganizationNames = $otherOrganizationNames;
     }
