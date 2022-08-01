@@ -6,14 +6,12 @@ namespace Archetype;
 
 use Archetype\Address\Address;
 use Archetype\Common\RegisteredIdentifierInterface;
-use Archetype\Party\PartyIdentifierInterface;
 use Archetype\Party\PartyInterface;
 use Archetype\Preference\Preference;
-use ArrayObject;
 
 abstract class Party implements PartyInterface
 {
-    private PartyIdentifierInterface $partyIdentifier;
+    private PartyIdentifier $partyIdentifier;
     private array $addresses;
     private array $roles;
 
@@ -22,7 +20,7 @@ abstract class Party implements PartyInterface
     {
     }
 
-    public function getIdentifier(): PartyIdentifierInterface
+    public function getIdentifier(): PartyIdentifier
     {
         return $this->partyIdentifier;
     }
