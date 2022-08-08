@@ -46,8 +46,7 @@ class PreferenceTest extends TestCase
                 new PreferenceOption('A', '...'),
                 new PreferenceOption('B', '...'),
                 new PreferenceOption('C', '...'),
-            ],
-//            $this->getEconomyClassIdentifier()
+            ]
         );
     }
 
