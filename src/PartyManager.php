@@ -41,7 +41,7 @@ class PartyManager
         return array_values(
             array_filter(
                 $this->parties,
-                function(Party $party, $k) use ($name) {
+                function(Party $party) use ($name) {
                     return $party->getName() === $name;
                 },
                 ARRAY_FILTER_USE_BOTH

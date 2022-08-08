@@ -12,9 +12,6 @@ use Archetype\PartyManager;
 
 class PartyManagerTest extends TestCase
 {
-    /**
-     * @var PartyManager
-     */
     private PartyManager $manager;
 
     public function setUp(): void
@@ -22,12 +19,26 @@ class PartyManagerTest extends TestCase
         $this->manager = new PartyManager();
     }
 
-    public function testSearchByNameFindOne(): void
+    public function testFindByIdentifier(): void
     {
+        $partyIdentifierTwo = new PartyIdentifier('UUID-2');
         $partyOne = new Organization(new PartyIdentifier('UUID-1'), new OrganizationName('name-1'));
-        $partyTwo = new Organization(new PartyIdentifier('UUID-2'), new OrganizationName('name-2'));
+        $partyTwo = new Organization($partyIdentifierTwo, new OrganizationName('name-2'));
+        $this->manager->addParty($partyOne)->addParty($partyTwo);
+        $this->assertSame($partyTwo, $this->manager->findPartyByPartyIdentifier($partyIdentifierTwo));
+        $this->manager->deleteParty($partyIdentifierTwo);
+        $this->assertSame(null, $this->manager->findPartyByPartyIdentifier($partyIdentifierTwo));
+    }
+
+    public function testSearchByNameFindOneAndRemoved(): void
+    {
+        $partyIdentifierTwo = new PartyIdentifier('UUID-2');
+        $partyOne = new Organization(new PartyIdentifier('UUID-1'), new OrganizationName('name-1'));
+        $partyTwo = new Organization($partyIdentifierTwo, new OrganizationName('name-2'));
         $this->manager->addParty($partyOne)->addParty($partyTwo);
         $this->assertSame([$partyTwo], $this->manager->findPartyByName('name-2'));
+        $this->manager->deleteParty($partyIdentifierTwo);
+        $this->assertSame([], $this->manager->findPartyByName('name-2'));
     }
 
     public function testSearchByNameNotFound(): void
