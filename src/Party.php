@@ -10,18 +10,17 @@ use Archetype\Preference\Preference;
 
 abstract class Party implements PartyInterface
 {
-    private array $addresses;
-    private array $roles;
-
     /**
      * @param PartyIdentifier $partyIdentifier
      * @param Preference[] $preferences
      * @param RegisteredIdentifier[] $registeredIdentifiers
+     * @param Address[] $addresses
      */
     public function __construct(
         private PartyIdentifier $partyIdentifier,
         private array $preferences = [],
-        private array $registeredIdentifiers = []
+        private array $registeredIdentifiers = [],
+        private array $addresses = []
     ){}
 
     public function getIdentifier(): PartyIdentifier
@@ -44,7 +43,7 @@ abstract class Party implements PartyInterface
      */
     public function getAddresses(): array
     {
-        return [];
+        return $this->addresses;
     }
 
     /**
