@@ -18,9 +18,10 @@ class Organization extends Party
         OrganizationName $organizationName,
         array $otherOrganizationNames = [],
         array $preferences = [],
-        array $registeredIdentifiers = []
+        array $registeredIdentifiers = [],
+        array $addresses = []
     ) {
-        parent::__construct($partyIdentifier, $preferences, $registeredIdentifiers);
+        parent::__construct($partyIdentifier, $preferences, $registeredIdentifiers, $addresses);
         $this->organizationName = $organizationName;
         $this->otherOrganizationNames = $otherOrganizationNames;
     }
